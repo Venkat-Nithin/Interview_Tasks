@@ -188,9 +188,9 @@ export default Dashboard;
 
 .filters-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   margin-bottom: 20px;
-  flex-wrap: wrap;
 }
 
 .chart-container {
@@ -200,6 +200,8 @@ export default Dashboard;
   border-radius: 5px;
   padding: 15px;
   background-color: #fff;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .table-container {
@@ -210,9 +212,11 @@ export default Dashboard;
 .data-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 600px; 
 }
 
-.data-table th, .data-table td {
+.data-table th,
+.data-table td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -224,7 +228,7 @@ export default Dashboard;
 
 .summary-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
   margin-bottom: 20px;
 }
@@ -234,6 +238,7 @@ export default Dashboard;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 15px;
+  box-sizing: border-box;
 }
 
 .summary-card h3 {
@@ -243,7 +248,7 @@ export default Dashboard;
 }
 
 .summary-card p {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0;
 }
@@ -261,13 +266,38 @@ export default Dashboard;
   background-color: #ffebee;
   border-radius: 5px;
   margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
   .filters-container {
     flex-direction: column;
   }
+
+  .chart-container {
+    height: auto;
+  }
+
+  .data-table {
+    font-size: 14px;
+  }
+
+  .summary-card p {
+    font-size: 18px;
+  }
 }
+
+@media (max-width: 480px) {
+  .data-table th,
+  .data-table td {
+    padding: 8px;
+  }
+
+  .summary-card p {
+    font-size: 16px;
+  }
+}
+
 
 // FILE: optimization-review.md
 # Performance Optimization Review
